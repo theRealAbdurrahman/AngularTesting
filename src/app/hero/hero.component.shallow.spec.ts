@@ -17,6 +17,7 @@ describe('Hero Component (shallow)', () => {
     });
     fixture = TestBed.createComponent(HeroComponent);
     comp = fixture.componentInstance;
+    // Debug element enable us to test the template
     de = fixture.debugElement;
   });
 
@@ -25,10 +26,11 @@ describe('Hero Component (shallow)', () => {
     expect(comp.hero.name).toEqual('bedo');
   });
 
-  it('should render the hero name inide an anchor tag', () => {
+  it('should render the hero name inside an anchor tag', () => {
     comp.hero = { id: 1, name: 'bedo', strength: 100 };
     fixture.detectChanges(); // Do the binding w kda
     expect(de.query(By.css('a')).nativeElement.textContent).toContain('bedo');
+    // the good old plain JS way
       // fixture.nativeElement.querySelector('a').textContent
   });
 
